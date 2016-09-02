@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>小小提示窗</title>
+<style type="text/css">
+div,ul,li,body { margin: 0; padding: 0; font-size: 12px; }
+#prompt {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	z-index: 999999;
+	width: 300px;
+	height: 100px;
+	margin: -50px 0 0 -150px;
+	border-radius: 10px;
+	overflow: hidden;
+	text-align: center;
+	line-height: 100px;
+	color: #fff;
+	-webkit-transition: all .3s ease 0s;
+	-moz-transition: all .3s ease 0s;
+	-ms-transition: all .3s ease 0s;
+	transition: all .3s ease 0s;
+
+	-webkit-transform: scale(0);
+	-moz-transform: scale(0);
+	-ms-transform: scale(0);
+	transform: scale(0);
+}
+#prompt.show {
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+}
+#prompt span {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+	background: #000;
+	opacity: .5;
+	filter: alpha(opacity = 50);
+	border-radius: 10px;
+}
+</style>
+</head>
+
+<body>
+显示内容：<input type="text" value="弹出小小提示" id="txt">
+<input type="button" value="弹出小小提示" id="button">
+</body>
+</html>
+<script>
+window.onload = function(){
+	
+	promptFn({
+		btn : 'button',
+		txt : 'txt'
+	});
+	
+	function promptFn(arge){
+
+		var btn = document.getElementById(arge.btn);   //获取按钮
+
+		btn.onclick = function(){
+			createNode(arge);
+		}
+
+		
+		function createNode(arge){
+
+			//这里处理多次点击，设置一个开关
+			var btn = document.getElementById(arge.btn),  //获取按钮
+				status = btn.getAttribute('status');      //获取按钮status属性
+			
+			//默认情况为空，相当于打开开关，为空的时候证明未点击。否则已经点击过了
+			if(status){ return false; }
+
+			//设置按钮status状态为true，有值的情况就是点击过了，相当于关闭开关
+			btn.setAttribute('status', 'true');
+
+			var div = document.createElement('div'),     //创建div对象
+				span = document.createElement('span'),   //创建span对象
+				txt = document.getElementById(arge.txt).value; //获取内容
+			div.id = 'prompt';                           //div设置ID
+			div.innerHTML = txt;                         //写入内容
+			div.appendChild(span);                       //span添加到div，成为子级对象
+
+			document.body.appendChild(div);              //div添加到body
+
+			//执行动画
+			animation(div, btn);
+		}
+
+		function animation(obj, btn){
+			var timerShow = null,
+				timerHide = null,
+				timerRemove = null;
+
+			//显示提示窗口
+			timerShow = setTimeout(function(){
+				obj.className = 'show';   //添加show样式，使用CSS3属性显示弹窗
+				clearTimeout(timerShow);  //清除定时器
+
+				//2秒钟后隐藏弹窗
+				timerHide = setTimeout(function(){
+					obj.className = '';   //清除show样式，使用CSS3属性隐藏弹窗
+					clearTimeout(timerHide);  //清除定时器
+
+					//隐藏后删除对象
+					timerRemove = setTimeout(function(){
+						obj.remove();               //删除对象
+						clearTimeout(timerRemove);  //清除定时器
+
+						//清除最后的定时器，清空status的值，相当于重新打开开关
+						btn.setAttribute('status', '');
+
+					}, 400);
+
+				}, 2000);
+
+			}, 100);
+			
+		}
+		
+	}
+};
+</script>

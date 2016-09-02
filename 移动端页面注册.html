@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" id="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <title>注册</title>
+    <style>
+        body, h1, h2, h3, h4, h5, h6, p, ul, ol, form, div, ul, li, nav, header,footer{margin: 0;padding: 0px; list-style:none;}
+body{font-family:Helvetica; overflow-x:hidden; overflow-y:scorll;}
+a{ text-decoration:none}
+.red{color:#FF0000}
+.gray9{color:#999}
+.gray6{color:#666}
+.gray3{color:#333}
+.blue{color:#3399FF}
+.black{color:#000}
+.white{color:#fff}
+.txt_r{ text-align:right}
+.txt_c{ text-align:center}
+.tsize_s{font-size:0.8rem;}
+.tsize_b{font-size:1.1rem;}
+.float_l{ float:left;}
+.float_r{ float:right;}
+.line_s{ line-height:1.2rem;}
+.line_m{ line-height:1.6rem;}
+.line_b{ line-height:2rem;}
+.mar_t_s{ margin-top:0.5rem;}
+.mar_t_m{ margin-top:1rem;}
+.mar_t_b{ margin-top:1.8rem;}
+.mar_r_s{ margin-right:1rem;}
+
+body{padding:0.6rem; background:#f2f2f2;}
+#wrap{width:100%; height:100%;position:relative;}
+.mess_in li{background:#fff;border:solid 1px #ccc; margin-top:-1px; height:2.2rem; line-height:2.2rem;padding:0 0.3rem; color:#999;clear:both; overflow:hidden;position:relative;}
+.mess_in li img{ width:0.8rem; float:right; margin-top:-1.6rem; position:absolute;right:0.2rem;}
+.mess_in li span{padding-right:0.2rem;}
+.mess_in li input{ border:none; outline:none; background:none; float:right; line-height:1.8rem; text-align:right; padding-right:0.2rem; font-size:1rem;margin-right:0.7rem;-webkit-tap-highlight-color: transparent;}
+.mess_in li input[type="text"], .mess_in li input[type="password"],.mess_in li input[type="tel"], .mess_in li input[type="email"]{ width:50%;}
+.mess_in li input[type="button"]{width:35%;color:#008000; overflow:hidden; white-space: nowrap; text-overflow:ellipsis;}
+.mess_in li input::-webkit-input-placeholder {color: #aaa !important; font-size:0.9rem;}
+.mess_in li input[value="请选择"]{color:#3399FF;}
+.mess_in li input:foucs{background:none;border:none;outline:none;-webkit-appearance:none;}
+#wrap form{padding-bottom:3rem;}
+.mess_in .lefttxt1{width:40%;float:left;}
+
+.data_sub{bottom:0;left:0; width:100%;background:#f2f2f2; padding:0.6rem; overflow:hidden; box-sizing:border-box;}
+.data_sub input{height:2.4rem; line-height:2.4rem; font-size:1.1rem; background:#009966; color:#fff; border:none; width:100%;-webkit-appearance: none;}
+
+.suc_wrap{ width:55%; margin:20% auto; }
+.suc_wrap h4{ line-height:3rem; position:relative; padding-left:2.4rem; color:#008000; height:4rem;}
+.suc_wrap h4 img{margin:0.3rem 0.3rem 0 0; position:absolute; left:0;}
+.suc_wrap p{line-height:1.8rem;}
+.suc_wrap input{height:2.4rem; line-height:2.4rem; font-size:1.1rem; background:#3399cc; color:#fff; border:none; width:100%; margin-top:1rem;}
+
+.logo img{width:45%; display:block; margin:1.5rem auto;}
+.data_login input{height:2.4rem; line-height:2.4rem; font-size:1.1rem; background:#009966; color:#fff; border:none; width:100%; margin-top:1.5rem;-webkit-appearance: none;}
+.video{ width:100%;}
+
+.modal_window{ width:100%; height:100%; position: fixed; top:0; left:0;}
+.m_win_bg{ width:100%; height:100%; position:absolute; background:#000; opacity:0.7; display:block; clear:both; overflow:hidden;}
+.m_win_con{ width:80%; padding:0.6rem; height:auto; background:#fff; top: 50%;left: 50%;transform: translate(-50%, -50%);-webkit-transform: translate(-50%, -50%); position:absolute; z-index:999;}
+.modal_window #close{ width:0.9rem; height:0.9rem; position:absolute; top:0.6rem; right:0.6rem; border:none; background: url(http://cdn.attach.w3cfuns.com/notes/pics/201608/02/144009rlwfb56guh7fffz6.png) no-repeat; background-size:contain; outline:none;-webkit-appearance: none;border-radius:0;}
+.cho_item{ width:90%;line-height:2rem; margin:0.6rem auto; text-align:center; border:solid 1px #ccc;}
+.cho_itema{ width:80%;line-height:2.2rem; margin:0.6rem auto; text-align:center;}
+.cho_item:last-child{ margin-bottom:2rem;}
+.cho_item:first-child{ margin-top:1rem;}
+.active{ border:solid 2px #ff6600; color:#ff6600;}
+#qdcw{width:60%; height:2.4rem; line-height:2.4rem; text-align:center; color:#fff; background:#009966; display:block; margin:0 auto; border:none; margin-bottom:1rem;font-size:1rem;-webkit-appearance: none;}
+
+.into_reg{height:2.4rem; line-height:2.5rem; font-size:1.1rem; background:#ffae00; color:#fff; border:none; width:100%; display:block; position:relative;}
+.into_reg img{position:absolute;top:0.6rem; margin-left:-0.5rem; width:1.2rem;}
+.into_reg span{animation: comin 1s infinite linear;-webkit-animation: comin 1s infinite linear;}
+@media (max-width: 320px) {
+    .mess_in li, .suc_wrap p, .suc_wrap h4{font-size:0.8rem;}
+	.suc_wrap{width:60%;}	
+	.mess_in li input{font-size:0.8rem;}
+	.mess_in li input::-webkit-input-placeholder {font-size:0.8rem;}
+}
+
+@-webkit-keyframes comin
+{
+0% 		{padding-left:-0;}
+50% 	{padding-left:0.4rem;}
+100%	{padding-left:-0;}
+}
+    </style>
+</head>
+<body>
+	<div id="wrap">
+    	<p class="gray6 line_m">注册后才能观看<a class="blue float_r" href="#">已有账号，马上登录</a></p>
+        <form>
+            <h4 class="gray9 tsize_b mar_t_s">基本信息</h4>
+            <ul class="mess_in mar_t_s">
+                <li><span class="red">*</span>姓名<input name="name" type="text" id="name" placeholder="输入姓名" value="" maxlength="50" onFocus="inputtest(this)" /></li>
+                <li><span class="red">*</span>性别<input type="button" name="sex" id="sex" value="男" onClick="modalwin(this,this.id)" /></li>
+                <li><span class="red">*</span>年龄<input type="button" name="age" id="age" value="20-30岁" onClick="modalwin(this,this.id)" /></li>
+                <li>身份证号<input type="text" name="idnum" id="idnum" placeholder="身份证号" maxlength="18" onFocus="inputtest(this)"  /></li>
+                <li><span class="red">*</span>地区<input type="button" name="district" id="district" value="请选择"  onClick="modalwin(this,this.id)" /></li>
+                <li><span class="red">*</span>最高学历<input type="button" name="education" id="education" value="请选择"  onClick="modalwin(this,this.id)" /></li>
+                <li><span class="red">*</span>职业<input type="button" name="work" id="work" value="请选择"  onClick="modalwin(this,this.id)" /></li>
+                <li><span class="red">*</span>专业背景<input type="button" name="profession" id="profession" value="请选择"  onClick="modalwin(this,this.id)" /></li>
+                <li><span class="red">*</span>外语水平<input type="button" name="language" id="language" value="请选择"  onClick="modalwin(this,this.id)" /></li>
+            </ul>
+            <h4 class="gray9 tsize_b mar_t_s">联系信息</h4>
+            <ul class="mess_in mar_t_s">
+                <li><span class="red">*</span>手机号<input type="tel" name="phonenum" id="phonenum" placeholder="登录账号及接受密码" onFocus="inputtest(this)" value="" maxlength="11"  /></li>
+                <li><span class="red">*</span>邮箱<input type="email" name="email" id="email" placeholder="输入邮箱" value="" onFocus="inputtest(this)" maxlength="50"  /></li>
+                <li>微信号<input type="text" name="wechat" id="wechat" placeholder="输入微信号" value="" maxlength="50" onFocus="inputtest(this)"  /></li>
+                <li>QQ号<input type="tel" name="qq" id="qq" placeholder="输入QQ号" value="" maxlength="20" onFocus="inputtest(this)"  /></li>
+                <li>快递地址<input type="text" name="adress" id="adress" placeholder="输入快递地址" value="" onFocus="inputtest(this)" /></li>
+            </ul>
+            <h4 class="gray9 tsize_b mar_t_s">专业信息</h4>
+            <ul class="mess_in mar_t_s">
+                <li><span class="red">*</span>流派<input type="button" name="sect" id="sect" value="请选择"  onClick="modalwin(this,this.id)" /></li>
+                <li><span class="red">*</span>培训背景<input type="button" name="setting" id="setting" value="请选择"  onClick="modalwin(this,this.id)" /></li>
+                <li><span class="red">*</span>每周小时数<input type="button" name="weektime" id="weektime" value="请选择"  onClick="modalwin(this,this.id)" /></li>
+                <li><span class="red">*</span>每月小时数<input type="button" name="monthtime" id="monthtime" value="请选择"  onClick="modalwin(this,this.id)" /></li>
+                <li><span class="red">*</span>累计小时数<input type="button" name="selftime" id="selftime" value="请选择"  onClick="modalwin(this,this.id)" /></li>
+                <li><span class="red">*</span>累计在线小时数<input type="button" name="alltime" id="alltime" value="请选择"  onClick="modalwin(this,this.id)" /></li>
+                <li><span class="red">*</span>累计使用小时数<input type="button" name="selfalltime" id="selfalltime"  onClick="modalwin(this,this.id)" value="请选择" /></li>
+            </ul>
+            <div class="data_sub"><input type="button" id="submit" value="提交" onClick="datatest()" /></div>
+        </form>
+    </div>
+    <div class="modal_window" id="modalwindow" style="display:none;">
+    </div>
+    <script>
+        // JavaScript Document
+var sex=new Array("男","女");
+var age=new Array("20岁以下","20-30岁","30-40岁","40-50岁","50-60岁","60岁以上");
+var district=new Array("北京、上海、武汉","华南（广州、深圳、长沙等）","华东（苏州、杭州、温州、厦门等）","华中（郑州、济南、青岛、合肥等）","华北（天津、石家庄、太原等）","西北（西安、兰州、西宁等）","西南（昆明、贵阳、成都、重庆等）");
+var education=new Array("高中及以下","专科","本科","硕士","博士及以上");
+var work=new Array("精神科医生","心理咨询师","心理治疗师","教师","其他");
+var profession=new Array("精神医学","心理学","教育学","其它相关学科");
+var language=new Array("专业翻译水平","熟练交流水平","简单听说水平","读写水平","其它");
+var sect=new Array("青春正太","偶像喜剧","家庭伦理","战争灾难","历史纪录","科幻悬疑");
+var setting=new Array("国际认证培训","国际合作连续培训项目","本土连续培训项目","其它面授课程","其它网络或微课");
+var weektime=new Array("5小时以下","5-10小时","10-30小时","30小时以上");
+var monthtime=new Array("每周一次","每月1-2次","不规律","无");
+var selftime=new Array("200小时以下"," 200-500小时 ","500-2000小时","2000小时以上");
+var alltime=new Array("20小时以下","20-50小时","50-200小时","200小时以上");
+var selfalltime=new Array("20小时以下","20-50小时","50-300小时","300小时以上");
+
+var biaodan;
+var mtk=document.getElementById("modalwindow");
+//console.log(setting[2]);
+//给模态框初始化数据并弹出
+function modalwin(ele,eleid){
+	var elelsz=eval(eleid);
+	biaodan=ele;
+	var tckwin=document.getElementById("modalwindow");
+	//console.log(elelength);
+	var str='<div class="m_win_con"><h5 class="gray9 tsize_b">请选择地区</h5><input type="button" id="close" onClick="closemodalw()" /><ul id="chooseitem">';
+	for(i=0;i<elelsz.length;i++){
+		var xzz=ele.value;
+		if(xzz==elelsz[i]){
+			str+='<li class="cho_item gray6 active" onClick="writeoption(this)">'+elelsz[i]+'</li>';
+			}
+		else{
+		str+='<li class="cho_item gray6"  onClick="writeoption(this)">'+elelsz[i]+'</li>';}
+		}
+	str=str.replace("undefined","");
+	str=str+'</ul></div><div class="m_win_bg"></div>';
+	tckwin.innerHTML=str;
+	tckwin.style.display="block";
+	
+}
+//关闭模态框
+function closemodalw(){
+	document.getElementById("modalwindow").style.display="none";
+	}
+	
+//模态框内选项选择后收起模态框并给页面写入点击数据
+function writeoption(ele){
+		biaodan.value=ele.innerText;
+		var noticeico=biaodan.parentNode.getElementsByTagName("div")[0];
+		if(noticeico!=undefined){
+		var noticep=noticeico.parentNode;
+		noticep.removeChild(noticeico);}
+		document.getElementById("modalwindow").style.display="none";
+	}
+//非空验证
+//console.log(document.getElementById(name).value);
+function validate1(element){
+	var byzz=document.getElementById(element).value;
+	if(byzz==""|| byzz==null){
+		return false;
+		}
+		return true;
+	}
+//邮箱格式验证
+function validate2(element){
+	var myRegex =/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/; 
+	var byzz=document.getElementById(element).value;
+	if(byzz == "" || !myRegex.test(byzz)){
+		return false;
+		}
+		return true;
+	}
+//必选择项目验证
+function validate3(element){
+	var byzz=document.getElementById(element).value;
+	if(byzz=="请选择"){
+		return false;
+		}
+		return true;
+}
+//验证手机号
+function validate4(element){
+	var reg = /^0?1[3|4|5|8][0-9]\d{8}$/;
+	var byzz=document.getElementById(element).value;
+	if(byzz=="" ||byzz.length!=11 ||  !reg.test(byzz)){
+		return false;
+		}
+		return true;
+}
+
+//验证身份证号
+function validate5(element){
+	var reg = /^0?1[3|4|5|8][0-9]\d{8}$/;
+	var byzz=document.getElementById(element).value;
+	if(byzz==""){
+		return true;
+		}
+	else if(!IdentityCodeValid(byzz)){
+		return false;
+		}
+		return true;
+}
+
+
+var img ='<img src="http://cdn.attach.w3cfuns.com/notes/pics/201608/02/144215aidiy3shyh8mf858.png" />'
+function datatest(){
+	var yz1=function(){
+		if(!validate1("name")){
+			var imgarea=document.createElement("div");
+			var eleparent=document.getElementById("name").parentNode;
+			var shifouy=eleparent.getElementsByTagName("div").length;
+			imgarea.innerHTML=img;
+			if(shifouy==0){
+				eleparent.appendChild(imgarea);
+			}
+			return 0;
+			}
+			else{return 1;}
+		}
+	var yz2=function(){
+		if(!validate3("district")){
+			var imgarea=document.createElement("div");
+			var eleparent=document.getElementById("district").parentNode;
+			var shifouy=eleparent.getElementsByTagName("div").length;
+			imgarea.innerHTML=img;
+			if(shifouy==0){
+				eleparent.appendChild(imgarea);
+			}
+			 return 0;
+			 }
+		else{return 1;}
+		}
+	var yz3=function(){
+		if(!validate3("education")){
+			var imgarea=document.createElement("div");
+			var eleparent=document.getElementById("education").parentNode;
+			var shifouy=eleparent.getElementsByTagName("div").length;
+			imgarea.innerHTML=img;
+			if(shifouy==0){
+				eleparent.appendChild(imgarea);
+			}
+			 return 0;
+			 }
+			 else{return 1;}
+			 }
+	var yz4=function(){
+		if(!validate3("work")){
+			var imgarea=document.createElement("div");
+			var eleparent=document.getElementById("work").parentNode;
+			var shifouy=eleparent.getElementsByTagName("div").length;
+			imgarea.innerHTML=img;
+			if(shifouy==0){
+				eleparent.appendChild(imgarea);
+			}
+			 return 0;
+			 }
+			 else{return 1;}
+			 }
+	var yz5=function(){
+		if(!validate3("profession")){
+			var imgarea=document.createElement("div");
+			var eleparent=document.getElementById("profession").parentNode;
+			var shifouy=eleparent.getElementsByTagName("div").length;
+			imgarea.innerHTML=img;
+			if(shifouy==0){
+				eleparent.appendChild(imgarea);
+			}
+			 return 0;
+			 }
+			 else{return 1;}
+			 }
+	var yz6=function(){
+			if(!validate3("language")){
+				var imgarea=document.createElement("div");
+			var eleparent=document.getElementById("language").parentNode;
+			var shifouy=eleparent.getElementsByTagName("div").length;
+			imgarea.innerHTML=img;
+			if(shifouy==0){
+				eleparent.appendChild(imgarea);
+			}
+		 	return 0;
+		 }
+		 else{return 1;}
+		 }
+	var yz7=function(){
+		if(!validate4("phonenum")){
+			var imgarea=document.createElement("div");
+			var eleparent=document.getElementById("phonenum").parentNode;
+			var shifouy=eleparent.getElementsByTagName("div").length;
+			imgarea.innerHTML=img;
+			if(shifouy==0){
+				eleparent.appendChild(imgarea);
+			}
+			return 0;
+			 }
+			 else{return 1;}
+			 }
+	var yz8=function(){
+		if(!validate2("email")){
+			var imgarea=document.createElement("div");
+			var eleparent=document.getElementById("email").parentNode;
+			var shifouy=eleparent.getElementsByTagName("div").length;
+			imgarea.innerHTML=img;
+			if(shifouy==0){
+				eleparent.appendChild(imgarea);
+			}
+			 return 0;
+			 }
+			 else{return 1;}
+			 }
+	var yz9=function(){
+		if(!validate3("sect")){
+			var imgarea=document.createElement("div");
+			var eleparent=document.getElementById("sect").parentNode;
+			var shifouy=eleparent.getElementsByTagName("div").length;
+			imgarea.innerHTML=img;
+			if(shifouy==0){
+				eleparent.appendChild(imgarea);
+			}
+			 return 0;
+			 }
+			else{return 1;}
+			 }
+	var yz10=function(){
+		if(!validate3("setting")){
+			var imgarea=document.createElement("div");
+			var eleparent=document.getElementById("setting").parentNode;
+			var shifouy=eleparent.getElementsByTagName("div").length;
+			imgarea.innerHTML=img;
+			if(shifouy==0){
+				eleparent.appendChild(imgarea);
+			}
+			 return 0;
+			 }
+			else{ return 1;}
+			 }
+	var yz11=function(){
+		if(!validate3("weektime")){
+			var imgarea=document.createElement("div");
+			var eleparent=document.getElementById("weektime").parentNode;
+			var shifouy=eleparent.getElementsByTagName("div").length;
+			imgarea.innerHTML=img;
+			if(shifouy==0){
+				eleparent.appendChild(imgarea);
+			}
+			 return 0;
+			 }
+			else{ return 1;}
+			 }
+	var yz12=function(){
+		if(!validate3("monthtime")){
+			var imgarea=document.createElement("div");
+			var eleparent=document.getElementById("monthtime").parentNode;
+			var shifouy=eleparent.getElementsByTagName("div").length;
+			imgarea.innerHTML=img;
+			if(shifouy==0){
+				eleparent.appendChild(imgarea);
+			}
+			 return 0;
+			 }
+			else{ return 1;}
+			 }
+	var yz13=function(){
+		if(!validate3("selftime")){
+			var imgarea=document.createElement("div");
+			var eleparent=document.getElementById("selftime").parentNode;
+			var shifouy=eleparent.getElementsByTagName("div").length;
+			imgarea.innerHTML=img;
+			if(shifouy==0){
+				eleparent.appendChild(imgarea);
+			}
+			 return 0;
+			 }
+			 else{return 1;}
+			 }
+	var yz14=function(){
+		if(!validate3("alltime")){
+			var imgarea=document.createElement("div");
+			var eleparent=document.getElementById("alltime").parentNode;
+			var shifouy=eleparent.getElementsByTagName("div").length;
+			imgarea.innerHTML=img;
+			if(shifouy==0){
+				eleparent.appendChild(imgarea);
+			}
+		 	return 0;
+		 }
+		 else{return 1;}
+		 }
+	var yz15=function(){
+		if(!validate3("selfalltime")){
+			var imgarea=document.createElement("div");
+			var eleparent=document.getElementById("selfalltime").parentNode;
+			var shifouy=eleparent.getElementsByTagName("div").length;
+			imgarea.innerHTML=img;
+			if(shifouy==0){
+				eleparent.appendChild(imgarea);
+			}
+			 return 0;
+			 }
+			 else{return 1;}
+			// return true;
+			 }
+	var yz16=function(){
+		if(!validate5("idnum")){
+			var imgarea=document.createElement("div");
+			var eleparent=document.getElementById("idnum").parentNode;
+			var shifouy=eleparent.getElementsByTagName("div").length;
+			imgarea.innerHTML=img;
+			if(shifouy==0){
+				eleparent.appendChild(imgarea);
+			}
+			 return 0;
+			 }
+			 else{return 1;}
+			// return true;
+			 }
+	//console.log(yz1());
+	//yz1();yz2();yz3();yz4();yz5();yz6();yz7();yz8();yz9();yz10();yz11();yz12();yz13();yz14();yz15();
+	var flag1 = yz1();
+	var flag2 = yz2();
+	var flag3 = yz3();
+	var flag4 = yz4();
+	var flag5 = yz5();
+	var flag6 = yz6();
+	var flag7 = yz7();
+	var flag8 = yz8();
+	var flag9 = yz9();
+	var flag10 = yz10();
+	var flag11 = yz11();
+	var flag12 = yz12();
+	var flag13 = yz13();
+	var flag14 = yz14();
+	var flag15 = yz15();
+	var flag16 = yz16();
+	if(0==flag1 || 0==flag2 || 0==flag3 || 0==flag4 || 0==flag5 || 0==flag6 || 0==flag7 || 0==flag8 || 0==flag9 || 0==flag10 || 0==flag11 || 0==flag12 || 0==flag13 || 0==flag14|| 0==flag15|| 0==flag16){
+		//alert("信息输入错误");
+		var tckwin=document.getElementById("modalwindow");
+		var str='<div class="m_win_con"><h5 class="gray9 tsize_b">错误提示</h5><input type="button" id="close" onClick="closemodalw()" /><ul id="chooseitem"><li class="cho_itema gray6">您输入的信息有错误！</li><input type="button" value="确定" id="qdcw"  onClick="closemodalw()" /></ul></div><div class="m_win_bg"></div>';
+		tckwin.innerHTML=str;
+		tckwin.style.display="block";
+	}
+}
+
+function datatest2(){
+	var yztel=function(){
+	if(!validate4("phonenum")){
+		var imgarea=document.createElement("div");
+		var eleparent=document.getElementById("phonenum").parentNode;
+		var shifouy=eleparent.getElementsByTagName("div").length;
+		imgarea.innerHTML=img;
+		if(shifouy==0){
+			eleparent.appendChild(imgarea);
+		}
+		return 0;
+		}
+		else{return 1;}
+	}
+	var flagtel = yztel();
+	if(0==flagtel){
+			var tckwin=document.getElementById("modalwindow");
+			var str='<div class="m_win_con"><h5 class="gray9 tsize_b">错误提示</h5><input type="button" id="close" onClick="closemodalw()" /><ul id="chooseitem"><li class="cho_itema gray6">您的手机号码输入有误！</li><input type="button" value="确定" id="qdcw"  onClick="closemodalw()" /></ul></div><div class="m_win_bg"></div>';
+			tckwin.innerHTML=str;
+			tckwin.style.display="block";
+		}
+}
+	
+function inputtest(ele){
+	var noticeico=ele.parentNode.getElementsByTagName("div")[0];
+		if(noticeico!=undefined){
+		var noticep=noticeico.parentNode;
+		noticep.removeChild(noticeico);}
+}
+
+//身份证验证正则
+function IdentityCodeValid(code) { 
+            var city={11:"北京",12:"天津",13:"河北",14:"山西",15:"内蒙古",21:"辽宁",22:"吉林",23:"黑龙江 ",31:"上海",32:"江苏",33:"浙江",34:"安徽",35:"福建",36:"江西",37:"山东",41:"河南",42:"湖北 ",43:"湖南",44:"广东",45:"广西",46:"海南",50:"重庆",51:"四川",52:"贵州",53:"云南",54:"西藏 ",61:"陕西",62:"甘肃",63:"青海",64:"宁夏",65:"新疆",71:"台湾",81:"香港",82:"澳门",91:"国外 "};
+            var tip = "";
+            var pass= true;
+            
+            if(!code || !/^\d{6}(18|19|20)?\d{2}(0[1-9]|1[12])(0[1-9]|[12]\d|3[01])\d{3}(\d|X)$/i.test(code)){
+                //tip = "身份证号格式错误";
+                pass = false;
+            }
+            
+           else if(!city[code.substr(0,2)]){
+                //tip = "地址编码错误";
+                pass = false;
+            }
+            else{
+                //18位身份证需要验证最后一位校验位
+                if(code.length == 18){
+                    code = code.split('');
+                    //∑(ai×Wi)(mod 11)
+                    //加权因子
+                    var factor = [ 7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2 ];
+                    //校验位
+                    var parity = [ 1, 0, 'X', 9, 8, 7, 6, 5, 4, 3, 2 ];
+                    var sum = 0;
+                    var ai = 0;
+                    var wi = 0;
+                    for (var i = 0; i < 17; i++)
+                    {
+                        ai = code[i];
+                        wi = factor[i];
+                        sum += ai * wi;
+                    }
+                    var last = parity[sum % 11];
+                    if(parity[sum % 11] != code[17]){
+                        //tip = "校验位错误";
+                        pass =false;
+                    }
+                }
+            }
+            if(!pass) { return false};
+            return pass;
+        }
+    </script>
+</body>
+</html>
